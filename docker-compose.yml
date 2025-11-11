@@ -24,7 +24,7 @@ services:
     command: npx playwright test playwright
 
   cypress-tests:
-    image: cypress/included:15.5.0
+    image: cypress/included:15.6.0
     shm_size: 2gb
     working_dir: /e2e
     volumes:

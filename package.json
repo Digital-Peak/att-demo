@@ -1,6 +1,7 @@
 {
 	"type": "module",
 	"dependencies": {
-		"@playwright/test": "^1.56.1"
+		"@playwright/test": "^1.56.1",
+		"cypress": "^15.6.0"
 	}
 }
