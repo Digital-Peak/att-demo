@@ -1,0 +1,43 @@
+services:
+  pw-tests:
+    image: mcr.microsoft.com/playwright:v1.56.1-noble
+    shm_size: 2gb
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=${DISPLAY}
+      - NPM_CONFIG_UPDATE_NOTIFIER=false
+    command: npx playwright test --ui playwright
+
+  pw-ci:
+    image: mcr.microsoft.com/playwright:v1.56.1-noble
+    shm_size: 2gb
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=${DISPLAY}
+      - NPM_CONFIG_UPDATE_NOTIFIER=false
+    command: npx playwright test playwright
+
+  cypress-tests:
+    image: cypress/included:15.5.0
+    shm_size: 2gb
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=${DISPLAY}
+    entrypoint: npx cypress open
+
+  cypress-ci:
+    image: cypress/included:15.6.0
+    shm_size: 2gb
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e
+    command: npx cypress run

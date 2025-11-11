@@ -1,1 +1,1 @@
-# playwright-demo
+# Automated testing demo
