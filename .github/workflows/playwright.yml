@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  playwright-run:
+  Playwright-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,4 +20,4 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright test --reporter=list playwright
+        run: npx playwright test playwright --reporter=list

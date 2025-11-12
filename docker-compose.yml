@@ -1,5 +1,5 @@
 services:
-  pw-tests:
+  pw-gui:
     image: mcr.microsoft.com/playwright:v1.56.1-noble
     shm_size: 2gb
     working_dir: /app
@@ -13,7 +13,7 @@ services:
       - /dev/dri:/dev/dri
     command: npx playwright test --ui playwright
 
-  pw-ci:
+  pw-cli:
     image: mcr.microsoft.com/playwright:v1.56.1-noble
     shm_size: 2gb
     working_dir: /app
@@ -25,7 +25,7 @@ services:
       - NPM_CONFIG_UPDATE_NOTIFIER=false
     command: npx playwright test playwright
 
-  cypress-tests:
+  cypress-gui:
     image: cypress/included:15.6.0
     shm_size: 2gb
     working_dir: /e2e
@@ -36,7 +36,7 @@ services:
       - DISPLAY=${DISPLAY}
     entrypoint: npx cypress open
 
-  cypress-ci:
+  cypress-cli:
     image: cypress/included:15.6.0
     shm_size: 2gb
     working_dir: /e2e
