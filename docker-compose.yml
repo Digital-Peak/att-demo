@@ -9,6 +9,8 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
       - NPM_CONFIG_UPDATE_NOTIFIER=false
+    devices:
+      - /dev/dri:/dev/dri
     command: npx playwright test --ui playwright
 
   pw-ci:
