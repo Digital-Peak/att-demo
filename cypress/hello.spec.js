@@ -1,5 +1,5 @@
 describe('Joomla Digital Peak', () => {
-	it('checks the home page title and takes a screenshot', () => {
+	it('opens the front page and checks the title', () => {
 		cy.visit('https://joomla.digital-peak.com');
 
 		cy.title().should('match', /Joomla Extensions/);

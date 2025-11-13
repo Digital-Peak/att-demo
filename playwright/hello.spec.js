@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-test('title', async ({ page }) => {
+test('It opens the front page and checks the title', async ({ page }) => {
 	await page.goto('https://joomla.digital-peak.com');
 
 	await expect(page).toHaveTitle(/Joomla Extensions/);
 });
 
-test('subscribe link', async ({ page }) => {
+test('It clicks the Subscribe link and checks navigation', async ({ page }) => {
 	await page.goto('https://joomla.digital-peak.com');
 	await page.click('text=Subscribe');
 
